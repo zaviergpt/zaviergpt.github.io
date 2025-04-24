@@ -29,22 +29,8 @@
 			section {
 				margin: 25px;
 			}
-			section#hello-section {
-				display: flex;
-				align-items: center;
-				justify-content: left;
-				height: calc(675px/1.125);
-				overflow: hidden;
-				color: #000000;
-				background-color: #FFFFFF;
-				margin: 0px;
-				position: relative;
-				transition: none;
-			}
 			section#hello-section img {
-				height: 95%;
-				margin-top: 5%;
-				margin-right: 2.5%;
+				display: none;
 			}
 			section#hello-section ul#socials {
 				display: flex;
@@ -170,62 +156,69 @@
 				font-size: calc(15px/1.375);
 			}
 			@media only screen and (max-width: 600px) {
-				section#hello-section img {
-					margin-right: 5%;
+				section#hello-section {
+					height: calc(675px/1.125);
+					overflow: hidden;
+					color: #000000;
+					background-color: #FFFFFF;
+					margin: 0px;
+					position: relative;
+					transition: none;
 				}
-				section#hello-section ul#socials li {
-					margin-right: calc((15px/1.3)/2);
-					width: calc((15px/1.3)*2);
+				section#hello-section img#hello-picture-phone {
+					display: block;
 				}
-				section#hello-section ul#socials li a {
-					font-size: calc(15px/1.3);
-					line-height: calc(15px/1.3);
+				section#hello-section div#hello-greetings {
+					display: flex;
+					align-items: center;
+					justify-content: center;
 				}
-				section#hello-section h1 {
-					font-size: calc((15px * 1.25)/1.3);
-					letter-spacing: calc((15px * 1.25/-50)/1.3);
+			}
+			@media only screen and (min-width: 600px) {
+				section#hello-section img#hello-picture-desktop {
+					height: 95%;
+					margin-top: 5%;
+					margin-right: 2.5%;
+					display: block;
 				}
-				section#hello-section span {
-					font-size: calc((15px * 1.75)/1.3);
-					margin: 0px calc(((15px * 1.75)/14)/1.3);
-					letter-spacing: calc((15px * 1.75/-50)/1.3);
-				}
-				section#hello-section ul#skills li {
-					font-size: calc((15px/1.5)/1.3);
-					margin-right: calc(15px/1.3);
-				}
-				section#hello-section ul#skills li i {
-					font-size: calc((15px * 3)/1.3);
-					margin-bottom: calc((15px/5)/1.3);
-				}
-				section#hello-section h2 {
-					margin-top: calc(25px/1.3);
-					margin-bottom: calc(10px/1.3);
-					font-size: calc((15px/1.375)/1.3);
+				section#hello-section {
+					display: flex;
+					align-items: center;
+					justify-content: left;
+					height: calc(675px/1.125);
+					overflow: hidden;
+					color: #000000;
+					background-color: #FFFFFF;
+					margin: 0px;
+					position: relative;
+					transition: none;
 				}
 			}
 		</style>
 	</head>
 	<body>
 		<section id="hello-section">
-			<img src="./me (1).png">
-			<div>
-				<h1>Hello, I am Zavier.<br>Your <span style="background-image: linear-gradient(#9ebe4b, #87af46)">Programmer</span>, <span style="background-image: linear-gradient(#a14573, #bc4977)">Photographer</span><br>and <span style="background-image: linear-gradient(#4ec183, #46b484)">Web Designer</span>.</h1>
-				<ul id="socials">
-					<li style="background-color: #24292e"><a><i class="fa-brands fa-github"></i></a></li>
-					<li style="background-color: #fca326"><a><i class="fa-brands fa-gitlab"></i></a></li>
-					<li style="background-color: #0077b5"><a><i class="fa-brands fa-linkedin-in"></i></a></li>
-					<li style="background-color: #ea4c89"><a><i class="fa-brands fa-dribbble"></i></a></li>
-				</ul>
-				<h2>My Skills</h1>
-				<ul id="skills">
-					<li><i class="fa-brands fa-python" style="background-image: linear-gradient(150deg, #4B8BBE, #306998, #FFD43B, #FFE873)"></i><div>Python</div></li>
-					<li><i class="fa-brands fa-node-js" style="background-image: linear-gradient(150deg, #68A063, #3C873A)"></i><div>Node JS</div></li>
-					<li><i class="fa-brands fa-html5" style="background-image: linear-gradient(150deg, #E34C26, #F06529)"></i><div>HTML5</div></li>
-					<li><i class="fa-brands fa-css3-alt" style="background-image: linear-gradient(150deg, #3C99DC, #0F5298)"></i><div>CSS</div></li>
-					<li><i class="fa-brands fa-js" style="color: #F0DB4F"></i><div>Javascript</div></li>
-				</ul>
+			<img id="hello-picture-desktop" src="./me (1).png">
+			<div id="hello-greetings">
+				<div>
+					<h1>Hello, I am Zavier.<br>Your <span style="background-image: linear-gradient(#9ebe4b, #87af46)">Programmer</span>, <span style="background-image: linear-gradient(#a14573, #bc4977)">Photographer</span><br>and <span style="background-image: linear-gradient(#4ec183, #46b484)">Web Designer</span>.</h1>
+					<ul id="socials">
+						<li style="background-color: #24292e"><a><i class="fa-brands fa-github"></i></a></li>
+						<li style="background-color: #fca326"><a><i class="fa-brands fa-gitlab"></i></a></li>
+						<li style="background-color: #0077b5"><a><i class="fa-brands fa-linkedin-in"></i></a></li>
+						<li style="background-color: #ea4c89"><a><i class="fa-brands fa-dribbble"></i></a></li>
+					</ul>
+					<h2>My Skills</h1>
+					<ul id="skills">
+						<li><i class="fa-brands fa-python" style="background-image: linear-gradient(150deg, #4B8BBE, #306998, #FFD43B, #FFE873)"></i><div>Python</div></li>
+						<li><i class="fa-brands fa-node-js" style="background-image: linear-gradient(150deg, #68A063, #3C873A)"></i><div>Node JS</div></li>
+						<li><i class="fa-brands fa-html5" style="background-image: linear-gradient(150deg, #E34C26, #F06529)"></i><div>HTML5</div></li>
+						<li><i class="fa-brands fa-css3-alt" style="background-image: linear-gradient(150deg, #3C99DC, #0F5298)"></i><div>CSS</div></li>
+						<li><i class="fa-brands fa-js" style="color: #F0DB4F"></i><div>Javascript</div></li>
+					</ul>
+				</div>
 			</div>
+			<img id="hello-picture-phone" src="./me (1).png">
 			<div id="scroll-to-see-more" onclick="document.documentElement.scrollTop = 600"><i class="fa-solid fa-arrow-down"></i> scroll to see more</div>
 		</section>
 		<section id="projects-section">
@@ -265,8 +258,6 @@
 				})
 				window.dispatchEvent(new Event("scroll"))
 				document.getElementById("hello-section").style.height = window.innerHeight > 675 ? 675 : window.innerHeight + "px"
-			} else {
-				document.getElementById("hello-section").style.height = window.innerWidth/16 * 9 + "px"
 			}
 			document.body.style.opacity = 1
 		})
