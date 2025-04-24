@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<style>
 			@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
@@ -15,31 +16,44 @@
 				font-optical-sizing: auto;
 				transition: all 0.25s;
 				-webkit-tap-highlight-color: transparent;
-				letter-spacing: -0.5px;
 			}
 			html {
+				background-color: #000000;
 				scroll-behavior: smooth;
+			}
+			body {
+				color: #FFFFFF;
+				opacity: 0;
+				transition: opacity 1s;
+			}
+			section {
+				margin: 25px;
 			}
 			section#hello-section {
 				display: flex;
 				align-items: center;
 				justify-content: left;
-				height: calc(675px/1.5);
+				height: calc(675px/1.125);
 				overflow: hidden;
+				color: #000000;
+				background-color: #FFFFFF;
+				margin: 0px;
+				position: relative;
+				transition: none;
 			}
 			section#hello-section img {
 				height: 95%;
 				margin-top: 5%;
 				margin-right: 2.5%;
 			}
-			section#hello-section ul {
+			section#hello-section ul#socials {
 				display: flex;
 				align-items: center;
 				justify-content: left;
 				list-style-type: none;
 				margin-top: 10px;
 			}
-			section#hello-section ul li {
+			section#hello-section ul#socials li {
 				margin-right: 7.5px;
 				border-radius: 50%;
 				width: 30px;
@@ -48,37 +62,110 @@
 				align-items: center;
 				justify-content: center;
 			}
-			section#hello-section ul li a {
+			section#hello-section ul#socials li a {
 				color: #FFFFFF;
 				font-size: 15px;
 				line-height: 15px;
 			}
-			section#hello-section span#designer {
-				
+			section#hello-section h1 {
+				font-size: calc(15px * 1.25);
+				letter-spacing: calc((15px * 1.25/-50));
 			}
-			ul.navigation {
-				position: fixed;
-				top: 10px;
-				left: 50%;
-				transform: translate(-50%, 0);
+			section#hello-section span {
+				font-size: calc(15px * 1.75);
+				margin: 0px calc((15px * 1.75)/14);
+				letter-spacing: calc((15px * 1.75/-50));
+				background-clip: text;
+  				color: transparent;
+			}
+			section#hello-section ul#skills {
+				display: flex;
+				align-items: center;
+				justify-content: left;
 				list-style-type: none;
+			}
+			section#hello-section ul#skills li {
+				font-size: calc(15px/1.5);
+				text-align: center;
+				margin-right: 15px;
+				color: rgba(0, 0, 0, 0.675);
+				font-weight: 600;
+			}
+			section#hello-section ul#skills li i {
+				font-size: calc(15px * 3);
+				margin-bottom: calc(15px/5);
+				background-clip: text;
+  				color: transparent;
+			}
+			section#hello-section h2 {
+				margin-top: 25px;
+				margin-bottom: 10px;
+				font-size: calc(15px/1.375);
+				text-transform: uppercase;
+				color: rgba(0, 0, 0, 0.75);
+			}
+			section#hello-section div#scroll-to-see-more {
+				position: absolute;
+				bottom: -69px;
+				left: 0;
+				right: 0;
+				padding: 25px 0px;
+				color: #FFFFFF;
+				background-color: rgba(0, 0, 0, 0.5);
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				background-color: rgba(0, 0, 0, 0.0125);
-				backdrop-filter: blur(15px);
-				box-shadow: 0px 0px 1.25px rgba(0, 0, 0, 0.125);
-				padding: 0px 5px;
-				border-radius: calc(25px * 1.25);
+				font-size: calc(15px/1.375);
+				line-height: calc(15px/1.375);
+				text-transform: uppercase;
+				border-top-left-radius: 12.5px;
+				border-top-right-radius: 12.5px;
+				cursor: pointer;
+				backdrop-filter: blur(7.5px);
 			}
-			ul.navigation li {
-				margin: 10px 5px;
-				padding: 10px 20px;
-				border-radius: calc(20px * 1.25);
+			section#hello-section div#scroll-to-see-more i {
+				font-size: calc(15px * 1.25);
+				line-height: calc(15px * 1.25);
+				margin-right: calc(15px/1.375);
 			}
-			ul.navigation li:has(a.active) {
-				background-color: rgba(255, 255, 255, 0.5);
-				box-shadow: 0px 0px 1.25px rgba(0, 0, 0, 0.125);
+			section#projects-section {
+
+			}
+			section#projects-section h1 {
+				font-size: calc(15px * 1.5);
+				line-height: calc(15px * 1.5 * 1.25)
+			}
+			section#projects-section ul {
+				display: flex;
+				align-items: center;
+				justify-content: left;
+				list-style-type: none;
+				margin-top: 25px;
+				margin-left: -2.5px;
+			}
+			section#projects-section ul li {
+				width: calc(275px - (12.5px * 2));
+				aspect-ratio: 5/7;
+				margin-right: calc(12.5px - (2.5px * 2));
+				overflow: hidden;
+				border-radius: 12.5px;
+				box-shadow: 0px 0px 2.5px rgba(0, 0, 0, 0.25);
+				padding: 12.5px 15px;
+				border: 2.5px solid #000000;
+			}
+			section#projects-section ul li:hover {
+				transform: scale(1.025);
+				border: 2.5px solid #FFFFFF;
+			}
+			section#projects-section ul li h2 {
+				font-size: calc(15px * 1.25);
+				line-height: calc(15px * 1.25 * 1.25);
+			}
+			section#projects-section ul li span {
+				display: block;
+				font-weight: 300;
+				text-transform: uppercase;
+				font-size: calc(15px/1.375);
 			}
 		</style>
 	</head>
@@ -86,25 +173,61 @@
 		<section id="hello-section">
 			<img src="./me (1).png">
 			<div>
-				<h1>Hello, I am Zavier.<br>Your <span>Designer</span> and <span>Programmer</span>.</h1>
-				<ul>
+				<h1>Hello, I am Zavier.<br>Your <span style="background-image: linear-gradient(#9ebe4b, #87af46)">Programmer</span>, <span style="background-image: linear-gradient(#a14573, #bc4977)">Photographer</span><br>and <span style="background-image: linear-gradient(#4ec183, #46b484)">Web Designer</span>.</h1>
+				<ul id="socials">
 					<li style="background-color: #24292e"><a><i class="fa-brands fa-github"></i></a></li>
 					<li style="background-color: #fca326"><a><i class="fa-brands fa-gitlab"></i></a></li>
 					<li style="background-color: #0077b5"><a><i class="fa-brands fa-linkedin-in"></i></a></li>
 					<li style="background-color: #ea4c89"><a><i class="fa-brands fa-dribbble"></i></a></li>
 				</ul>
+				<h2>My Skills</h1>
+				<ul id="skills">
+					<li><i class="fa-brands fa-python" style="background-image: linear-gradient(150deg, #4B8BBE, #306998, #FFD43B, #FFE873)"></i><div>Python</div></li>
+					<li><i class="fa-brands fa-node-js" style="background-image: linear-gradient(150deg, #68A063, #3C873A)"></i><div>Node JS</div></li>
+					<li><i class="fa-brands fa-html5" style="background-image: linear-gradient(150deg, #E34C26, #F06529)"></i><div>HTML5</div></li>
+					<li><i class="fa-brands fa-css3-alt" style="background-image: linear-gradient(150deg, #3C99DC, #0F5298)"></i><div>CSS</div></li>
+					<li><i class="fa-brands fa-js" style="color: #F0DB4F"></i><div>Javascript</div></li>
+				</ul>
 			</div>
+			<div id="scroll-to-see-more" onclick="document.documentElement.scrollTop = 600"><i class="fa-solid fa-arrow-down"></i> scroll to see more</div>
 		</section>
-		<ul class="navigation">
-			<li><a class="active">About</a></li>
-			<li><a>Projects</a></li>
-			<li><a>Contact</a></li>
-			<li id="scroll"></li>
-		</ul>
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<section id="projects-section">
+			<h1>My Projects</h1>
+			<ul>
+				<li style="background-image: linear-gradient(210.5deg, #964ec1, #46af6e)">
+					<h2><span>First Major Project</span>Youth Impact App</h2>
+				</li>
+				<li style="background-image: linear-gradient(83.5deg, #63b946, #a7aa46)">
+					<h2><span>Passwords Savior</span>pass0</h2>
+				</li>
+				<li style="background-image: linear-gradient(43.5deg, #bc8e49, #a59745)">
+					<h2><span>Text Manipulator</span>Encrypt.js</h2>
+				</li>
+			</ul>
+		</section>
 	</body>
 	<script>
-		window.addEventListener("scroll", (event) => {
-			document.getElementById("scroll").textContent = document.body.scrollTop
+		window.addEventListener("DOMContentLoaded", () => {
+			window.addEventListener("scroll", () => {
+				if (document.documentElement.scrollTop < 600/2) {
+					window.timeout = setTimeout(function(){
+						if (window.timeout) {
+							document.getElementById("scroll-to-see-more").style.bottom = "-1px"
+							window.timeout = null
+						}
+					}, 2500)
+				} else {
+					if (window.timeout) {
+						clearTimeout(window.timeout)
+						window.timeout = null
+						document.getElementById("scroll-to-see-more").style.bottom = "-69px"
+					}
+				}
+				console.log(document.documentElement.scrollTop)
+			})
+			window.dispatchEvent(new Event("scroll"))
+			document.getElementById("hello-section").style.height = window.innerHeight > 675 ? 675 : window.innerHeight + "px"
+			document.body.style.opacity = 1
 		})
 	</script>
+</html>
