@@ -71,26 +71,32 @@
 				list-style-type: none;
 				overflow: auto;
 				width: 100%;
+				flex-wrap: nowrap
 			}
 			section#hello-section ul#skills li {
 				font-size: calc(15px/1.5);
 				text-align: center;
-				margin-right: 15px;
-				color: rgba(0, 0, 0, 0.675);
+				padding-right: 15px;
+				color: rgba(0, 0, 0, 0.625);
 				font-weight: 600;
+				white-space: nowrap
 			}
 			section#hello-section ul#skills li i {
 				font-size: calc(15px * 3);
 				margin-bottom: calc(15px/5);
 				background-clip: text;
   				color: transparent;
+				color: rgba(0, 0, 0, 0.625);
+			}
+			section#hello-section ul#skills li div {
+				width: 100%;
 			}
 			section#hello-section h2 {
 				margin-top: 25px;
 				margin-bottom: 10px;
 				font-size: calc(15px/1.375);
 				text-transform: uppercase;
-				color: rgba(0, 0, 0, 0.75);
+				color: rgba(0, 0, 0, 0.625);
 			}
 			section#hello-section div#scroll-to-see-more {
 				position: absolute;
@@ -164,14 +170,23 @@
 					margin: 0px;
 					position: relative;
 					transition: none;
+					padding-top: 25px;
 				}
 				section#hello-section img#hello-picture-phone {
 					display: block;
+					width: 100%;
+					margin-top: 5%;
 				}
 				section#hello-section div#hello-greetings {
 					display: flex;
 					align-items: center;
 					justify-content: center;
+				}
+				section#hello-section div#hello-greetings div {
+					width: calc(100% - (25px * 2))
+				}
+				section#hello-section div#scroll-to-see-more {
+					display: none;
 				}
 			}
 			@media only screen and (min-width: 600px) {
@@ -210,11 +225,11 @@
 					</ul>
 					<h2>My Skills</h1>
 					<ul id="skills">
-						<li><i class="fa-brands fa-python" style="background-image: linear-gradient(150deg, #4B8BBE, #306998, #FFD43B, #FFE873)"></i><div>Python</div></li>
-						<li><i class="fa-brands fa-node-js" style="background-image: linear-gradient(150deg, #68A063, #3C873A)"></i><div>Node JS</div></li>
-						<li><i class="fa-brands fa-html5" style="background-image: linear-gradient(150deg, #E34C26, #F06529)"></i><div>HTML5</div></li>
-						<li><i class="fa-brands fa-css3-alt" style="background-image: linear-gradient(150deg, #3C99DC, #0F5298)"></i><div>CSS</div></li>
-						<li><i class="fa-brands fa-js" style="color: #F0DB4F"></i><div>Javascript</div></li>
+						<li><i class="fa-brands fa-python"></i><div>Python</div></li>
+						<li><i class="fa-brands fa-node-js"></i><div>Node JS</div></li>
+						<li><i class="fa-brands fa-html5"></i><div>HTML5</div></li>
+						<li><i class="fa-brands fa-css3-alt"></i><div>CSS</div></li>
+						<li><i class="fa-brands fa-js"></i><div>Javascript</div></li>
 					</ul>
 				</div>
 			</div>
@@ -238,9 +253,9 @@
 	</body>
 	<script>
 		window.addEventListener("DOMContentLoaded", () => {
-			if (window.innerWidth > 600) {
+			if (window.innerWidth > 600 && window.innerHeight < 675) {
 				window.addEventListener("scroll", () => {
-					if (document.documentElement.scrollTop < 600/2) {
+					if (document.documentElement.scrollTop < window.innerHeight/2) {
 						window.timeout = setTimeout(function(){
 							if (window.timeout) {
 								document.getElementById("scroll-to-see-more").style.bottom = "-1px"
