@@ -161,16 +161,14 @@
 				text-transform: uppercase;
 				font-size: calc(15px/1.375);
 			}
-			@media only screen and (max-width: 600px) {
+			@media only screen and (max-width: 780px) {
 				section#hello-section {
-					height: calc(675px/1.125);
 					overflow: hidden;
 					color: #000000;
 					background-color: #FFFFFF;
 					margin: 0px;
 					position: relative;
 					transition: none;
-					padding-top: calc(25px + 2.5%);
 				}
 				section#hello-section img#hello-picture-phone {
 					display: block;
@@ -181,15 +179,16 @@
 					display: flex;
 					align-items: center;
 					justify-content: center;
+					margin-top: 7.5%;
 				}
 				section#hello-section div#hello-greetings div {
-					width: calc(100% - (25px * 2))
+					width: calc(100% - (7.5% * 2))
 				}
 				section#hello-section div#scroll-to-see-more {
 					display: none;
 				}
 			}
-			@media only screen and (min-width: 600px) {
+			@media only screen and (min-width: 780px) {
 				section#hello-section img#hello-picture-desktop {
 					height: 95%;
 					margin-top: 5%;
