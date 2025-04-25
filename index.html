@@ -170,7 +170,7 @@
 					margin: 0px;
 					position: relative;
 					transition: none;
-					padding-top: 25px;
+					padding-top: calc(25px + 2.5%);
 				}
 				section#hello-section img#hello-picture-phone {
 					display: block;
@@ -273,6 +273,8 @@
 				})
 				window.dispatchEvent(new Event("scroll"))
 				document.getElementById("hello-section").style.height = window.innerHeight > 675 ? 675 : window.innerHeight + "px"
+			} else if (window.innerWidth < 600) {
+				document.getElementById("hello-section").style.height = window.innerWidth/9 * 16 + "px"
 			}
 			document.body.style.opacity = 1
 		})
