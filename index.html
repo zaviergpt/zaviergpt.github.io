@@ -26,9 +26,6 @@
 				opacity: 0;
 				transition: opacity 1s;
 			}
-			section {
-				margin: 25px;
-			}
 			section#hello-section img {
 				display: none;
 			}
@@ -98,68 +95,58 @@
 				text-transform: uppercase;
 				color: rgba(0, 0, 0, 0.625);
 			}
-			section#hello-section div#scroll-to-see-more {
-				position: absolute;
-				bottom: -69px;
-				left: 0;
-				right: 0;
-				padding: 25px 0px;
-				color: #FFFFFF;
-				background-color: rgba(0, 0, 0, 0.5);
+			ul.navigation {
+				position: fixed;
+				bottom: -75px;
+				left: 50%;
+				transform: translate(-50%, 0);
+				backdrop-filter: blur(20px);
+				list-style-type: none;
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				font-size: calc(15px/1.375);
-				line-height: calc(15px/1.375);
-				text-transform: uppercase;
-				border-top-left-radius: 12.5px;
-				border-top-right-radius: 12.5px;
-				cursor: pointer;
-				backdrop-filter: blur(7.5px);
+				background-color: rgba(255, 255, 255, 0.05);
+				border-radius: calc((60px + (25px/2.5))/2);
+				padding: 0px calc(25px/2.5);
+				opacity: 0;
 			}
-			section#hello-section div#scroll-to-see-more i {
-				font-size: calc(15px * 1.25);
-				line-height: calc(15px * 1.25);
-				margin-right: calc(15px/1.375);
-			}
-			section#projects-section {
-
-			}
-			section#projects-section h1 {
-				font-size: calc(15px * 1.5);
-				line-height: calc(15px * 1.5 * 1.25)
-			}
-			section#projects-section ul {
+			ul.navigation li {
+				margin: calc(25px/2.5) calc(25px/2.5/2);
 				display: flex;
 				align-items: center;
-				justify-content: left;
-				list-style-type: none;
-				margin-top: 25px;
-				margin-left: -2.5px;
+				justify-content: center;
+				height: calc(60px - ((25px/2.5) * 2));
+				font-size: calc(60px/4.5);
+				font-weight: 600;
+				transition: background-color 0.125s;
 			}
-			section#projects-section ul li {
-				width: calc(275px - (12.5px * 2));
-				aspect-ratio: 5/7;
-				margin-right: calc(12.5px - (2.5px * 2));
-				overflow: hidden;
-				border-radius: 12.5px;
-				box-shadow: 0px 0px 2.5px rgba(0, 0, 0, 0.25);
-				padding: 12.5px 15px;
-				border: 2.5px solid #000000;
+			ul.navigation li:has(img) {
+				aspect-ratio: 1;
 			}
-			section#projects-section ul li:hover {
-				transform: scale(1.025);
-				border: 2.5px solid #FFFFFF;
+			ul.navigation li:not(:has(img)) {
+				aspect-ratio: 23/9;
+				border-radius: calc(60px/2);
 			}
-			section#projects-section ul li h2 {
-				font-size: calc(15px * 1.25);
-				line-height: calc(15px * 1.25 * 1.25);
+			ul.navigation li img {
+				width: 75%;
 			}
-			section#projects-section ul li span {
-				display: block;
-				font-weight: 300;
-				text-transform: uppercase;
-				font-size: calc(15px/1.375);
+			ul.navigation li button {
+				background-color: rgba(0, 0, 0, 0);
+				color: #FFFFFF;
+				transition: none;
+				font-weight: 600;
+				width: 100%;
+				height: 100%;
+			}
+			ul.navigation li:hover {
+				background-color: rgba(255, 255, 255, 0.025);
+			}
+			ul.navigation li:not(:has(img)):has(button.active) {
+				background-color: rgba(255, 255, 255, 0.9);
+				color: rgba(0, 0, 0, 0.9);
+			}
+			ul.navigation li:not(:has(img)):has(button.active) button {
+				color: rgba(0, 0, 0, 0.9);
 			}
 			@media only screen and (max-width: 780px) {
 				section#hello-section {
@@ -183,9 +170,6 @@
 				}
 				section#hello-section div#hello-greetings div {
 					width: calc(100% - (7.5% * 2))
-				}
-				section#hello-section div#scroll-to-see-more {
-					display: none;
 				}
 			}
 			@media only screen and (min-width: 780px) {
@@ -233,42 +217,69 @@
 				</div>
 			</div>
 			<img id="hello-picture-phone" src="./me (1).png">
-			<div id="scroll-to-see-more" onclick="document.documentElement.scrollTop = 600"><i class="fa-solid fa-arrow-down"></i> scroll to see more</div>
 		</section>
 		<section id="projects-section">
-			<h1>My Projects</h1>
-			<ul>
-				<li style="background-image: linear-gradient(210.5deg, #964ec1, #46af6e)">
-					<h2><span>First Major Project</span>Youth Impact App</h2>
-				</li>
-				<li style="background-image: linear-gradient(83.5deg, #63b946, #a7aa46)">
-					<h2><span>Passwords Savior</span>pass0</h2>
-				</li>
-				<li style="background-image: linear-gradient(43.5deg, #bc8e49, #a59745)">
-					<h2><span>Text Manipulator</span>Encrypt.js</h2>
+			<h1>My Projects <ul>
+				<li><button>Full-Stack</button></li>
+				<li><button>Web</button></li>
+				<li><button>Python</button></li>
+			</ul></h1>
+			<ul id="projects">
+				<li>
+					<img>
+					<div>
+						<div><h1>YI App</h1><p>App created for Youths of my Church.</p></div>
+						<ul>
+							<li><i class="fa-brands fa-node-js"></i> Node.js</li>
+							<li><i class="fa-brands fa-html5"></i> HTML</li>
+							<li><i class="fa-brands fa-css3-alt"></i> CSS</li>
+							<li><i class="fa-brands fa-js"></i> JS</li>
+						</ul>
+					</div>
 				</li>
 			</ul>
 		</section>
+		<br><br><br><br><br><br><br><br><br><br><br>
+		<ul class="navigation" id="navigation">
+			<li><img src="./me.svg"></li>
+			<li><button id="hello-link" onclick="document.documentElement.scrollTop = 0">Hello</button></li>
+			<li><button id="projects-link" onclick="document.documentElement.scrollTop = 641">Projects</button></li>
+			<li><button id="socials-link">Socials</button></li>
+		</ul>
 	</body>
 	<script>
+		sections = document.getElementsByTagName("section")
+		navigation = document.getElementById("navigation").getElementsByTagName("button")
 		window.addEventListener("DOMContentLoaded", () => {
 			if (window.innerWidth > 600 && window.innerHeight < 675) {
 				window.addEventListener("scroll", () => {
-					if (document.documentElement.scrollTop < window.innerHeight/2) {
-						window.timeout = setTimeout(function(){
-							if (window.timeout) {
-								document.getElementById("scroll-to-see-more").style.bottom = "-1px"
-								window.timeout = null
-							}
-						}, 2500)
+					if (document.documentElement.scrollTop < window.innerHeight/4) {
+						document.getElementById("navigation").style.bottom = "-70px"
+						document.getElementById("navigation").style.opacity = 0
 					} else {
-						if (window.timeout) {
-							clearTimeout(window.timeout)
-							window.timeout = null
-							document.getElementById("scroll-to-see-more").style.bottom = "-69px"
+						for (var section in sections) {
+							section = sections[section]
+							if (section.id) {
+								section.top = section.getBoundingClientRect().top + window.scrollY
+								console.log(section.top)
+								if (document.documentElement.scrollTop > (section.top - 1) && document.documentElement.scrollTop < (section.top + section.offsetHeight + 1)) {
+									for (var link in navigation) {
+										link = navigation[link]
+										if (link.id) {
+											if (section.id.split("-")[0] === link.id.split("-")[0]) {
+												link.className = "active"
+											} else {
+												link.className = ""
+											}
+										}
+									}
+								}
+							}
 						}
+						document.getElementById("navigation").style.bottom = "calc(25px/1.5)"
+						document.getElementById("navigation").style.opacity = 1
+						console.log("scrolled out")
 					}
-					console.log(document.documentElement.scrollTop)
 				})
 				window.dispatchEvent(new Event("scroll"))
 				document.getElementById("hello-section").style.height = window.innerHeight > 675 ? 675 : window.innerHeight + "px"
@@ -276,6 +287,7 @@
 				document.getElementById("hello-section").style.height = window.innerWidth/9 * 16 + "px"
 			}
 			document.body.style.opacity = 1
+			document.documentElement.scrollTop = 641
 		})
 	</script>
 </html>
