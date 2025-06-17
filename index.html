@@ -121,7 +121,6 @@
 				height: calc(60px - ((25px/2.5) * 2));
 				font-size: calc(60px/4.5);
 				font-weight: 600;
-				transition: background-color 0.125s;
 			}
 			ul.navigation li:has(img) {
 				aspect-ratio: 1;
@@ -342,13 +341,13 @@
 				cursor: default;
 				opacity: 0.5;
 			}
-			section#certifications-section, section#socials-section {
+			section#awards-section, section#socials-section {
 				background-color: #FFFFFF;
 				color: #000000;
 				padding-top: 25px;
 				padding-bottom: 25px;
 			}
-			section#socials-section h1.heading, section#certifications-section h1.heading {
+			section#socials-section h1.heading, section#awards-section h1.heading {
 				text-align: center;
 				font-size: calc(16px * 1.5);
 				font-weight: 800;
@@ -356,7 +355,7 @@
 				color: #000000;
 				margin-bottom: 25px;
 			}
-			section#socials-section ul, section#certifications-section ul {
+			section#socials-section ul, section#awards-section ul {
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -400,21 +399,21 @@
 			section#socials-section ul li#socials-dribbble:hover .frame div {
 				box-shadow: 0px 0px 160px #ea4c89;
 			}
-			section#certifications-section ul li {
+			section#awards-section ul li {
 				width: calc((100%/1.125)/4);
 				font-size: calc(16px/1.1);
 				text-align: center;
 			}
-			section#certifications-section ul li img {
+			section#awards-section ul li img {
 				width: 90%;
 				height: 100%;
 				margin-bottom: 16px;
 				box-shadow: 0px 0px 2.5px rgba(0, 0, 0, 0.25);
 			}
-			section#certifications-section ul li h1 {
+			section#awards-section ul li h1 {
 				font-size: calc(16px * 1.1)
 			}
-			section#certifications-section ul li p {
+			section#awards-section ul li p {
 				margin: 0px auto;
 				width: 85%;
 			}
@@ -440,6 +439,20 @@
 				}
 				section#hello-section div#hello-greetings div {
 					width: calc(100% - (7.5% * 2))
+				}
+				section#projects-section h1.heading ul.filter {
+					display: none;
+				}
+				section#socials-section ul, section#awards-section ul {
+					display: block;
+				}
+				section#socials-section ul li, section#awards-section ul li {
+					width: 100%;
+					display: block;
+					margin-bottom: calc(25px * 1.5);
+				}
+				section#awards-section ul li img {
+					width: 65%;
 				}
 			}
 			@media only screen and (min-width: 870px) {
@@ -489,7 +502,7 @@
 			<img id="hello-picture-phone" src="./me (1).png">
 		</section>
 		<section id="projects-section">
-			<h1 class="heading">Projects <ul>
+			<h1 class="heading">Projects <ul class="filter">
 				<li><button id="all" onclick="document.getElementById('projects').className = this.id">All</button></li>
 				<li><button id="full-stack" onclick="document.getElementById('projects').className = this.id">Full-Stack</button></li>
 				<li><button id="web" onclick="document.getElementById('projects').className = this.id">Static Web</button></li>
@@ -514,6 +527,37 @@
 					</ul>
 				</div>
 			</div>
+		</section>
+		<section id="awards-section">
+			<h1 class="heading">Awards & Certificates</h1>
+			<ul>
+				<li>
+					<img src="./certifications/buildingblocs.jpg">
+					<h1>BuildingBlocs</h1>
+					<p>1st Runner-Up for BuildingBlocs June Conference 2025, an AI-based hackathon.</p>
+				</li>
+				<li>
+					<img src="./certifications/ycep.png">
+					<h1>YCEP Bootcamp</h1>
+					<p>Participated in Temasek Poly and CSA Singapore's Youth Cyber Exploration Programme</p>
+				</li>
+				<li>
+					<img src="./certifications/swiftexplorers.jpg">
+					<h1>Swift Explorers</h1>
+					<p>Participated in Apple and Tinkeracademy's Inclusive App Design Challenge Coding Bootcamp</p>
+				</li>
+				<li>
+					<img src="./certifications/blahaj.jpg">
+					<h1>BlahajCTF</h1>
+					<p>Participated in Blahaj-themed CTF sponsored by CSIT and NTU.</p>
+				</li>
+			</ul>
+		</section>
+		<section id="photography-section">
+			<h1 id="heading">Photography</h1>
+			<ul>
+				<li></li>
+			</ul>
 		</section>
 		<section id="socials-section">
 			<h1 class="heading">My Socials</h1>
@@ -541,36 +585,12 @@
 				</li>
 			</ul>
 		</section>
-		<section id="certifications-section">
-			<h1 class="heading">Awards & Certificates</h1>
-			<ul>
-				<li>
-					<img src="./certifications/buildingblocs.jpg">
-					<h1>BuildingBlocs</h1>
-					<p>1st Runner-Up for BuildingBlocs June Conference 2025, an AI-based hackathon.</p>
-				</li>
-				<li>
-					<img src="./certifications/ycep.png">
-					<h1>YCEP Bootcamp</h1>
-					<p>Participated in Temasek Poly and CSA Singapore's Youth Cyber Exploration Programme</p>
-				</li>
-				<li>
-					<img src="./certifications/swiftexplorers.jpg">
-					<h1>Swift Explorers</h1>
-					<p>Participated in Apple and Tinkeracademy's Inclusive App Design Challenge Coding Bootcamp</p>
-				</li>
-				<li>
-					<img src="./certifications/blahaj.jpg">
-					<h1>BlahajCTF</h1>
-					<p>Participated in Blahaj-themed CTF sponsored by CSIT and NTU.</p>
-				</li>
-			</ul>
-		</section>
 		<ul class="navigation" id="navigation">
 			<li><img src="./me.svg"></li>
 			<li><button id="hello-link" onclick="document.documentElement.scrollTop = 0">Hello</button></li>
 			<li><button id="projects-link" onclick="document.documentElement.scrollTop = 642">Projects</button></li>
-			<li><button id="socials-link">Socials</button></li>
+			<li><button id="awards-link" onclick="document.documentElement.scrollTop = 1081">Awards</button></li>
+			<li><button id="socials-link" onclick="document.documentElement.scrollTop = 1597">Socials</button></li>
 		</ul>
 	</body>
 	<script>
@@ -630,6 +650,7 @@
 							section = sections[section]
 							if (section.id) {
 								section.top = section.getBoundingClientRect().top + window.scrollY
+								console.log(section.id, section.top)
 								if ((document.documentElement.scrollTop - section.top)/section.offsetHeight > 0 && (document.documentElement.scrollTop - section.top)/section.offsetHeight < 1) {
 									for (var link in navigation[1]) {
 										link = navigation[1][link]
