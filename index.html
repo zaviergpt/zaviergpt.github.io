@@ -14,8 +14,8 @@
 				user-select: none;
 				font-family: "Plus Jakarta Sans", sans-serif;
 				font-optical-sizing: auto;
-				transition: all 0.25s;
 				-webkit-tap-highlight-color: transparent;
+				transition: all 0.25s, left 0s;
 			}
 			html {
 				background-color: #000000;
@@ -25,6 +25,9 @@
 				color: #FFFFFF;
 				opacity: 0;
 				transition: opacity 1s;
+			}
+			section#hello-section {
+				height: 100vh;
 			}
 			section#hello-section img {
 				display: none;
@@ -105,10 +108,10 @@
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				background-color: rgba(255, 255, 255, 0.05);
+				background-color: rgba(0, 0, 0, 0.75);
 				border-radius: calc((60px + (25px/2.5))/2);
 				padding: 0px calc(25px/2.5);
-				opacity: 0;
+				box-shadow: 0px 0px 2.5px rgba(0, 0, 0, 0.25);
 			}
 			ul.navigation li {
 				margin: calc(25px/2.5) calc(25px/2.5/2);
@@ -133,22 +136,289 @@
 			ul.navigation li button {
 				background-color: rgba(0, 0, 0, 0);
 				color: #FFFFFF;
-				transition: none;
 				font-weight: 600;
 				width: 100%;
 				height: 100%;
 			}
-			ul.navigation li:hover {
+			ul.navigation li:not(:has(img)):hover {
 				background-color: rgba(255, 255, 255, 0.025);
 			}
 			ul.navigation li:not(:has(img)):has(button.active) {
-				background-color: rgba(255, 255, 255, 0.9);
+				background-color: #FFFFFF;
 				color: rgba(0, 0, 0, 0.9);
 			}
 			ul.navigation li:not(:has(img)):has(button.active) button {
 				color: rgba(0, 0, 0, 0.9);
 			}
-			@media only screen and (max-width: 780px) {
+			section#projects-section {
+				padding: 25px;
+			}
+			section#projects-section h1.heading {
+				display: flex;
+				align-items: center;
+				justify-content: left;
+				font-size: calc(16px * 1.5);
+				font-weight: 800;
+			}
+			section#projects-section h1.heading ul {
+				display: flex;
+				align-items: center;
+				justify-content: left;
+				list-style-type: none;
+				margin: 0px calc(25px/1)
+			}
+			section#projects-section h1.heading ul li {
+				margin: 0px calc(25px/8);
+			}
+			section#projects-section h1.heading ul li button {
+				padding: calc(25px/3) calc(25px/1.5);
+				border-radius: calc(25px/1.5);
+				font-weight: 600;
+				background-color: rgba(0, 0, 0, 0);
+				color: #FFFFFF;
+			}
+			section#projects-section:has(ul#projects.all) h1.heading ul button#all, section#projects-section:has(ul#projects.full-stack) h1.heading ul button#full-stack, section#projects-section:has(ul#projects.web) h1.heading ul button#web, section#projects-section:has(ul#projects.ml) h1.heading ul button#ml, section#projects-section:has(ul#projects.others) h1.heading ul button#others {
+				background-color: #FFFFFF;
+				color: #000000;
+			}
+			section#projects-section ul#projects {
+				display: flex;
+				margin: calc((25px/2) + (25px/4)) calc(-25px/4);
+				list-style-type: none;
+				overflow-x: auto;
+				flex-wrap: nowrap;
+				min-height: calc(303px - 25px + 25px + 12.5px)
+			}
+			section#projects-section ul#projects::-webkit-scrollbar {
+				display: none;
+			}
+			section#projects-section ul#projects.full-stack li:not(ul.skillset li):not(.full-stack), section#projects-section ul#projects.web li:not(ul.skillset li):not(.web), section#projects-section ul#projects.ml li:not(ul.skillset li):not(.ml), section#projects-section ul#projects.others li:not(ul.skillset li):not(.others) {
+				display: none;
+			}
+			section#projects-section ul#projects li:not(ul.skillset li)  {
+				margin: calc(25px/4);
+				background-color: #FFFFFF;
+				color: #000000;
+				padding: calc(25px/2);
+				border-radius: calc(25px/2);
+				width: 250px;
+				display: block;
+				flex: 0 0 auto;
+				height: calc(303px - 25px);
+			}
+			section#projects-section ul#projects li:not(ul.skillset li):hover {
+				transform: scale(1.03125);
+				box-shadow: 0px 0px 2.5px rgba(0, 0, 0, 0.5);
+				opacity: 1;
+			}
+			section#projects-section ul#projects:has(li:not(ul.skillset li):hover) li:not(ul.skillset li):not(:hover) {
+				opacity: 0.5;
+				filter: blur(1.5625px);
+			}
+			section#projects-section ul#projects li img {
+				width: 100%;
+				aspect-ratio: 16/9;
+				border-radius: calc(25px/2);
+			}
+			section#projects-section ul#projects li .info {
+				width: 100%;
+				aspect-ratio: 16/6;
+				font-size: calc(16px/1.1);
+				margin-top: calc(25px/4)
+			}
+			section#projects-section ul#projects li .info h1 {
+				font-size: calc(16px * 1.1);
+				margin-bottom: calc((16px * 1.1)/6)
+			}
+			section#projects-section ul#projects li ul.skillset, section#projects-section .overlay#projects-overlay .container .details .info ul#projects-skillset {
+				display: flex;
+				flex-wrap: wrap;
+				list-style-type: none;
+				margin-top: calc(25px/4);
+			}
+			section#projects-section ul#projects li ul.skillset li, section#projects-section .overlay#projects-overlay .container .details .info ul#projects-skillset li {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: rgba(255, 255, 255, 0.9);
+				font-weight: 600;
+				width: calc(16px * 1.1 * 1.5);
+				aspect-ratio: 1;
+				border-radius: calc(16px/3);
+				margin-right: calc((16px * 1.1 * 1.5)/6)
+			}
+			section#projects-section ul#projects li ul.skillset li i, section#projects-section .overlay#projects-overlay .container .details .info ul#projects-skillset li i {
+				font-size: calc(16px * 1.1);
+				line-height: calc(16px * 1.1);
+			}
+			section#projects-section .overlay#projects-overlay {
+				position: fixed;
+				top: 0;
+				left: 100%;
+				right: 0;
+				bottom: 0;
+				z-index: 10000;
+				opacity: 0;
+				overscroll-behavior: contain;
+				overflow-y: auto;
+				background-color: rgba(0, 0, 0, 0.75);
+				backdrop-filter: blur(12.5px);
+			}
+			section#projects-section .overlay#projects-overlay .container {
+				background-color: rgba(255, 255, 255, 0.96875);
+				margin: 6.25% auto;
+				width: 75%;
+				padding: 25px;
+				border-radius: 25px;
+				box-shadow: 0px 0px 12.5px rgba(0, 0, 0, 0.25);
+				color: #000000;
+			}
+			section#projects-section .overlay#projects-overlay .container h1:has(span#projects-heading) {
+				display: flex;
+				align-items: center;
+				justify-content: left;
+				margin-bottom: calc(25px/1.1);
+				font-size: calc(16px * 1.25);
+				line-height: calc((16px * 1.25)/1.1)
+			}
+			section#projects-section .overlay#projects-overlay .container h1 button {
+				font-size: calc(16px * 1.25);
+				line-height: calc((16px * 1.25)/1.1);
+				width: 25px;
+				aspect-ratio: 1;
+				margin-right: 16px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background-color: rgba(0, 0, 0, 0);
+			}
+			section#projects-section .overlay#projects-overlay .container .details {
+				display: flex;
+				align-items: center;
+				justify-content: left;
+				list-style-type: none;
+			}
+			section#projects-section .overlay#projects-overlay .container .details img {
+				height: 106px;
+				aspect-ratio: 16/9;
+				margin-right: 25px;
+				border-radius: calc(75px/6);
+				box-shadow: 0px 0px 1.25px rgba(0, 0, 0, 0.125);
+			}
+			section#projects-section .overlay#projects-overlay .container .details .info {
+				font-size: calc(16px/1.1);
+				width: calc(100% - 50px - 250px - 189px)
+			}
+			section#projects-section .overlay#projects-overlay .container .details .info h1 {
+				font-size: calc(16px * 1.1)
+			}
+			section#projects-section .overlay#projects-overlay .container .details .info ul#projects-skillset {
+				margin-top: calc(25px/2.5)
+			}
+			section#projects-section .overlay#projects-overlay .container .details .links {
+				width: 250px;
+				margin-bottom: calc(-16px/2);
+				margin-left: 25px;
+			}
+			section#projects-section .overlay#projects-overlay .container .details .links a {
+				width: 100%;
+				aspect-ratio: 5.5/1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: calc(15px/1.2);
+				margin-bottom: calc(15px/2);
+				box-shadow: 0px 0px 1.25px rgba(0, 0, 0, 0.125);
+				border-radius: calc(25px/3);
+				color: #000000;
+				text-decoration: none;
+			}
+			section#projects-section .overlay#projects-overlay .container .details .links a i {
+				font-size: calc(15px * 1.2);
+				margin-right: calc((15px * 1.2)/2)
+			}
+			section#projects-section .overlay#projects-overlay .container .details .links a.disabled {
+				pointer-events: none;
+				cursor: default;
+				opacity: 0.5;
+			}
+			section#certifications-section, section#socials-section {
+				background-color: #FFFFFF;
+				color: #000000;
+				padding-top: 25px;
+				padding-bottom: 25px;
+			}
+			section#socials-section h1.heading, section#certifications-section h1.heading {
+				text-align: center;
+				font-size: calc(16px * 1.5);
+				font-weight: 800;
+				width: 100%;
+				color: #000000;
+				margin-bottom: 25px;
+			}
+			section#socials-section ul, section#certifications-section ul {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				list-style-type: none;
+			}
+			section#socials-section ul li {
+				width: calc((100%/2)/3)
+			}
+			section#socials-section ul li div:has(i):not(.frame) {
+				width: calc(32px * 2.5);
+				aspect-ratio: 1;
+				font-size: 32px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				border-radius: 50%;
+				margin-bottom: calc(16px/1.5);
+			}
+			section#socials-section ul li h1 {
+				font-size: calc(16px * 1.1);
+				color: #000000;
+				line-height: calc(16px * 1.1);
+				text-align: center;
+			}
+			section#socials-section ul li span {
+				font-size: calc(16px/1.1);
+				line-height: calc(16px/1.1);
+				color: rgba(0, 0, 0, 0.75);
+				text-align: center;
+				display: block;
+			}
+			section#socials-section ul li a {
+				text-decoration: none;
+			}
+			section#socials-section ul li#socials-github:hover .frame div {
+				box-shadow: 0px 0px 160px #24292e;
+			}
+			section#socials-section ul li#socials-linkedin:hover .frame div {
+				box-shadow: 0px 0px 160px #0077b5;
+			}
+			section#socials-section ul li#socials-dribbble:hover .frame div {
+				box-shadow: 0px 0px 160px #ea4c89;
+			}
+			section#certifications-section ul li {
+				width: calc((100%/1.125)/4);
+				font-size: calc(16px/1.1);
+				text-align: center;
+			}
+			section#certifications-section ul li img {
+				width: 90%;
+				height: 100%;
+				margin-bottom: 16px;
+				box-shadow: 0px 0px 2.5px rgba(0, 0, 0, 0.25);
+			}
+			section#certifications-section ul li h1 {
+				font-size: calc(16px * 1.1)
+			}
+			section#certifications-section ul li p {
+				margin: 0px auto;
+				width: 85%;
+			}
+			@media only screen and (max-width: 870px) {
 				section#hello-section {
 					overflow: hidden;
 					color: #000000;
@@ -172,7 +442,7 @@
 					width: calc(100% - (7.5% * 2))
 				}
 			}
-			@media only screen and (min-width: 780px) {
+			@media only screen and (min-width: 870px) {
 				section#hello-section img#hello-picture-desktop {
 					height: 95%;
 					margin-top: 5%;
@@ -219,52 +489,150 @@
 			<img id="hello-picture-phone" src="./me (1).png">
 		</section>
 		<section id="projects-section">
-			<h1>My Projects <ul>
-				<li><button>Full-Stack</button></li>
-				<li><button>Web</button></li>
-				<li><button>Python</button></li>
+			<h1 class="heading">Projects <ul>
+				<li><button id="all" onclick="document.getElementById('projects').className = this.id">All</button></li>
+				<li><button id="full-stack" onclick="document.getElementById('projects').className = this.id">Full-Stack</button></li>
+				<li><button id="web" onclick="document.getElementById('projects').className = this.id">Static Web</button></li>
+				<li><button id="ml" onclick="document.getElementById('projects').className = this.id">Machine Learning</button></li>
+				<li><button id="others" onclick="document.getElementById('projects').className = this.id">Others</button></li>
 			</ul></h1>
-			<ul id="projects">
-				<li>
-					<img>
-					<div>
-						<div><h1>YI App</h1><p>App created for Youths of my Church.</p></div>
-						<ul>
-							<li><i class="fa-brands fa-node-js"></i> Node.js</li>
-							<li><i class="fa-brands fa-html5"></i> HTML</li>
-							<li><i class="fa-brands fa-css3-alt"></i> CSS</li>
-							<li><i class="fa-brands fa-js"></i> JS</li>
-						</ul>
-					</div>
+			<ul id="projects" class="all"></ul>
+			<div class="overlay" id="projects-overlay">
+				<div class="container">
+					<h1><button onclick="document.getElementById('projects-overlay').style.left = '100%'; document.getElementById('projects-overlay').style.opacity = 0"><i class="fa-solid fa-arrow-left"></i></button><span id="projects-heading"></span></h1>
+					<ul class="details">
+						<li><img id="projects-banner"></li>
+						<li class="info">
+							<h1 id="projects-name">pass0</h1>
+							<p id="projects-description">Password Manager Web App built with HTML, CSS, and JS.</p>
+							<ul id="projects-skillset"></ul>
+						</li>
+						<li class="links" id="projects-links">
+							<a id="projects-links-github" style="background-color: #000000; color: #FFFFFF" target="_blank"><i class="fa-brands fa-github"></i> See Repository on Github</a>
+							<a id="projects-links-demo" style="background-color: #FFFFFF" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Live Demo</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<section id="socials-section">
+			<h1 class="heading">My Socials</h1>
+			<ul>
+				<li id="socials-github">
+					<a href="https://github.com/zaviergpt" target="_blank">
+						<div class="frame" style="width: 100%; display: flex; align-items: center; justify-content: center"><div style="background-color: #24292e; color: #FFFFFF"><i class="fa-brands fa-github"></i></div></div>
+						<h1>GitHub</h1>
+						<span>@zaviergpt</span>
+					</a>
+				</li>
+				<li id="socials-linkedin">
+					<a href="https://www.linkedin.com/in/zaviergpt" target="_blank">
+						<div class="frame" style="width: 100%; display: flex; align-items: center; justify-content: center"><div style="background-color: #0077b5; color: #FFFFFF"><i class="fa-brands fa-linkedin"></i></div></div>
+						<h1>LinkedIn</h1>
+						<span>@zaviergpt</span>
+					</a>
+				</li>
+				<li id="socials-dribbble">
+					<a>
+						<div class="frame" style="width: 100%; display: flex; align-items: center; justify-content: center"><div style="background-color: #ea4c89; color: #FFFFFF"><i class="fa-brands fa-dribbble"></i></div></div>
+						<h1>Dribbble</h1>
+						<span>@zaviergpt</span>
+					</a>
 				</li>
 			</ul>
 		</section>
-		<br><br><br><br><br><br><br><br><br><br><br>
+		<section id="certifications-section">
+			<h1 class="heading">Awards & Certificates</h1>
+			<ul>
+				<li>
+					<img src="./certifications/buildingblocs.jpg">
+					<h1>BuildingBlocs</h1>
+					<p>1st Runner-Up for BuildingBlocs June Conference 2025, an AI-based hackathon.</p>
+				</li>
+				<li>
+					<img src="./certifications/ycep.png">
+					<h1>YCEP Bootcamp</h1>
+					<p>Participated in Temasek Poly and CSA Singapore's Youth Cyber Exploration Programme</p>
+				</li>
+				<li>
+					<img src="./certifications/swiftexplorers.jpg">
+					<h1>Swift Explorers</h1>
+					<p>Participated in Apple and Tinkeracademy's Inclusive App Design Challenge Coding Bootcamp</p>
+				</li>
+				<li>
+					<img src="./certifications/blahaj.jpg">
+					<h1>BlahajCTF</h1>
+					<p>Participated in Blahaj-themed CTF sponsored by CSIT and NTU.</p>
+				</li>
+			</ul>
+		</section>
 		<ul class="navigation" id="navigation">
 			<li><img src="./me.svg"></li>
 			<li><button id="hello-link" onclick="document.documentElement.scrollTop = 0">Hello</button></li>
-			<li><button id="projects-link" onclick="document.documentElement.scrollTop = 641">Projects</button></li>
+			<li><button id="projects-link" onclick="document.documentElement.scrollTop = 642">Projects</button></li>
 			<li><button id="socials-link">Socials</button></li>
 		</ul>
 	</body>
 	<script>
 		sections = document.getElementsByTagName("section")
-		navigation = document.getElementById("navigation").getElementsByTagName("button")
+		navigation = [document.getElementById("navigation"), document.getElementById("navigation").getElementsByTagName("button")]
+		projects = [document.getElementById("projects"), [
+			{ name: "yi-app", description: "App created for Youths of my Church.", category: ["full-stack"], skillset: ["node-js", "html5", "css3-alt", "js"], links: { } },
+			{ name: "pass0", description: "Password Manager Web App built with HTML, CSS, and JS.", category: ["web"], skillset: ["html5", "css3-alt", "js"], links: { repository: "https://github.com/zaviergpt/pass0", demo: "https://zaviergpt.github.io/pass0" } },
+			{ name: "budge", description: "Budget Web App created with HTML, CSS and JS.", category: ["web"], skillset: ["html5", "css3-alt", "js"], links: { repository: "https://github.com/zaviergpt/budge", demo: "https://zaviergpt.github.io/budge" } },
+			{ name: "the-vault", description: "Barebones version of pass0, the project before pass0.", category: ["web"], skillset: ["html5", "css3-alt", "js"] },
+			{ name: "stash", description: "Decentralised storage solution and network created with Node.js.", category: ["others"], skillset: ["node-js"] },
+			{ name: "encrypt-js", description: "Encrypt JS is a script written in Javascript to Encrypt or Decrypt Text.", category: ["web"], skillset: ["js"] },
+			{ name: "encrypto", description: "Text encryption algorithm on Python.", category: ["others"], skillset: ["python"] }
+		], [document.getElementById("projects-overlay"), {
+			name: document.getElementById("projects-name"),
+			banner: document.getElementById("projects-banner"),
+			description: document.getElementById("projects-description"),
+			links: document.getElementById("projects-links"),
+			skillset: document.getElementById("projects-skillset"),
+			heading: document.getElementById("projects-heading"),
+			links: {
+				repository: document.getElementById("projects-links-github"),
+				demo: document.getElementById("projects-links-demo")
+			}
+		}]]
+		colors = { "js": ["#f2df3a"], "html5": ["#ff5733"], "css3-alt": ["#428bca"], "node-js": ["#3c763d"], "python": ["#306998", "#FFD43B"] }
 		window.addEventListener("DOMContentLoaded", () => {
+			projects[1].forEach((project) => {
+				project = [project, document.createElement("li")]
+				project[1].className = project[0].category.join(" ")
+				project[1].innerHTML = `<img src="./projects/${project[0].name}-banner.jpg" onerror="this.src = './projects/unknown-banner.jpg'"><div class="info"><h1>${project[0].name}</h1><p>${project[0].description}</p></div><ul class="skillset">${project[0].skillset.map((skill) => `<li style="${colors[skill].length < 2 ? `background-color: ${colors[skill][0]}` : `background-image: linear-gradient(150deg, ${colors[skill][0]}, ${colors[skill][1]})`}"><i class="fa-brands fa-${skill}"></i></li>`).join("")}</ul>`
+				project[1].data = project[0]
+				project[1].onclick = function() {
+					projects[2][0].style.left = "0px"
+					projects[2][0].style.opacity = 1
+					projects[2][1].banner.src = "./projects/" + this.data.name + "-banner.jpg"
+					projects[2][1].name.textContent = this.data.name
+					projects[2][1].description.textContent = this.data.description
+					projects[2][1].heading.textContent = this.data.name
+					projects[2][1].skillset.innerHTML = this.data.skillset.map((skill) => `<li style="${colors[skill].length < 2 ? `background-color: ${colors[skill][0]}` : `background-image: linear-gradient(150deg, ${colors[skill][0]}, ${colors[skill][1]})`}"><i class="fa-brands fa-${skill}"></i></li>`).join("")
+					Object.entries(projects[2][1].links).forEach((link) => {
+						if (Object.keys(this.data.links).includes(link[0])) {
+							link[1].className = ""
+							link[1].href = this.data.links[link[0]]
+						} else {
+							link[1].className = "disabled"
+						}
+					})
+					console.log(this.data)
+				}
+				projects[0].appendChild(project[1])
+			})
 			if (window.innerWidth > 600 && window.innerHeight < 675) {
 				window.addEventListener("scroll", () => {
-					if (document.documentElement.scrollTop < window.innerHeight/4) {
-						document.getElementById("navigation").style.bottom = "-70px"
-						document.getElementById("navigation").style.opacity = 0
-					} else {
+					if (document.documentElement.scrollTop > window.innerHeight/4) {
 						for (var section in sections) {
 							section = sections[section]
 							if (section.id) {
 								section.top = section.getBoundingClientRect().top + window.scrollY
-								console.log(section.top)
-								if (document.documentElement.scrollTop > (section.top - 1) && document.documentElement.scrollTop < (section.top + section.offsetHeight + 1)) {
-									for (var link in navigation) {
-										link = navigation[link]
+								if ((document.documentElement.scrollTop - section.top)/section.offsetHeight > 0 && (document.documentElement.scrollTop - section.top)/section.offsetHeight < 1) {
+									for (var link in navigation[1]) {
+										link = navigation[1][link]
 										if (link.id) {
 											if (section.id.split("-")[0] === link.id.split("-")[0]) {
 												link.className = "active"
@@ -276,10 +644,10 @@
 								}
 							}
 						}
-						document.getElementById("navigation").style.bottom = "calc(25px/1.5)"
-						document.getElementById("navigation").style.opacity = 1
-						console.log("scrolled out")
 					}
+					navigation[0].style.bottom = (((document.documentElement.scrollTop/(window.innerHeight/4)) < 1) ? (-75 + ((document.documentElement.scrollTop/(window.innerHeight/4)) * (16.7 - (-75)))) : 16.7) + "px"
+					navigation[0].style.transform = `translate(-50%, 0) scale(${((document.documentElement.scrollTop/(window.innerHeight/4)) > 1) ? 1 : (document.documentElement.scrollTop/(window.innerHeight/4))})`
+					navigation[0].style.opacity = (document.documentElement.scrollTop/(window.innerHeight/4))
 				})
 				window.dispatchEvent(new Event("scroll"))
 				document.getElementById("hello-section").style.height = window.innerHeight > 675 ? 675 : window.innerHeight + "px"
@@ -287,7 +655,6 @@
 				document.getElementById("hello-section").style.height = window.innerWidth/9 * 16 + "px"
 			}
 			document.body.style.opacity = 1
-			document.documentElement.scrollTop = 641
 		})
 	</script>
 </html>
