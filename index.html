@@ -128,6 +128,7 @@
 			ul.navigation li:not(:has(img)) {
 				aspect-ratio: 23/9;
 				border-radius: calc(60px/2);
+				cursor: pointer;
 			}
 			ul.navigation li img {
 				width: 75%;
@@ -149,10 +150,10 @@
 			ul.navigation li:not(:has(img)):has(button.active) button {
 				color: rgba(0, 0, 0, 0.9);
 			}
-			section#projects-section {
+			section#projects-section, section#photography-section {
 				padding: 25px;
 			}
-			section#projects-section h1.heading {
+			section#projects-section h1.heading, section#photography-section h1.heading {
 				display: flex;
 				align-items: center;
 				justify-content: left;
@@ -264,7 +265,7 @@
 				backdrop-filter: blur(12.5px);
 			}
 			section#projects-section .overlay#projects-overlay .container {
-				background-color: rgba(255, 255, 255, 0.96875);
+				background-color: #FDFDFD;
 				margin: 6.25% auto;
 				width: 75%;
 				padding: 25px;
@@ -365,14 +366,14 @@
 				width: calc((100%/2)/3)
 			}
 			section#socials-section ul li div:has(i):not(.frame) {
-				width: calc(32px * 2.5);
+				width: calc(40px * 2.5);
 				aspect-ratio: 1;
-				font-size: 32px;
+				font-size: 40px;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				border-radius: 50%;
-				margin-bottom: calc(16px/1.5);
+				margin-bottom: calc(16px/1.25);
 			}
 			section#socials-section ul li h1 {
 				font-size: calc(16px * 1.1);
@@ -416,6 +417,127 @@
 			section#awards-section ul li p {
 				margin: 0px auto;
 				width: 85%;
+			}
+			section#photography-section h1:not(.heading h1) {
+				margin-bottom: calc(25px - ((360px/4 * 5) * 0.1));
+				padding-bottom: 25px;
+			}
+			section#photography-section ul {
+				display: flex;
+				align-items: center;
+				justify-content: left;
+				height: calc((360px/4 * 5) * 1.1);
+				list-style-type: none;
+				overflow: hidden;
+				overflow-x: auto;
+				flex-wrap: nowrap;
+			}
+			section#photography-section ul::-webkit-scrollbar {
+				display: none;
+			}
+			section#photography-section ul .edition {
+				margin-right: calc(25px/2)
+			}
+			section#photography-section ul .edition .heading {
+				transform: rotate(-180deg);
+				font-size: calc(16px/1.1);
+				display: flex;
+				align-items: center;
+				justify-content: right;
+				text-align: right;
+				padding-bottom: 25px;
+				padding-left: calc(25px/2);
+				writing-mode: vertical-lr;
+			}
+			section#photography-section ul div li button {
+				width: 360px;
+				aspect-ratio: 4/5;
+				margin-right: calc(25px/3);
+				overflow: hidden;
+				border-radius: calc(25px/4);
+				border: 2.5px solid rgba(0, 0, 0, 0);
+				background-color: rgba(0, 0, 0, 0);
+			}
+			section#photography-section ul div li button img {
+				width: 100%;
+				height: 100%;
+			}
+			section#photography-section ul div li button:hover {
+				transform: scale(1.03125);
+				border: 2.5px solid #FFFFFF;
+			}
+			section#photography-section ul div .heading h1 {
+				font-size: calc(16px * 1.1);
+			}
+			section#photography-section ul div:has(li button:hover) li button:not(:hover) {
+				opacity: 0.5;
+				filter: blur(1.5625px);
+			}
+			.banner {
+				background-image: linear-gradient(150deg, #DA4453, #89216B);
+				padding: 25px 0px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				text-align: center;
+			}
+			.banner h1 {
+				font-size: calc(20px * 1.1);
+			}
+			.banner h2 {
+				font-size: calc(20px/1.1)
+			}
+			.banner a {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: calc(25px/2) calc(25px/1.5);
+				background-color: #24292e;
+				color: #FFFFFF;
+				border: 2.5px solid #FFFFFF;
+				border-radius: calc(25px/4);
+				text-decoration: none;
+				font-size: calc(16px/1.25);
+				margin: 0px auto;
+				margin-top: calc(25px/1.25);
+				width: 60%;
+				font-weight: 500;
+			}
+			.banner a i {
+				margin-right: calc((16px * 1.25)/2);
+				font-size: calc(16px * 1.25)
+			}
+			footer {
+				padding: calc(25px/2);
+				padding-bottom: 100px;
+			}
+			footer img {
+				margin: calc(25px/2);
+				margin-bottom: 0px;
+				width: 50px;
+			}
+			footer ul.footer {
+				display: flex;
+				justify-content: left;
+				list-style-type: none;
+			}
+			footer ul.footer li:not(ul.footer li ul li) {
+				margin: calc(25px/2);
+				width: calc(100%/3)
+			}
+			footer ul.footer li h1 {
+				font-size: calc(16px * 1.1);
+				margin-bottom: calc((16px * 1.1)/2.5);
+				font-weight: 700;
+			}
+			footer ul.footer li ul {
+				list-style-type: none;
+			}
+			footer ul.footer li ul li a {
+				text-decoration: none;
+				font-size: calc(16px/1.1);
+				color: #FFFFFF;
+				font-weight: 500;
 			}
 			@media only screen and (max-width: 870px) {
 				section#hello-section {
@@ -555,8 +677,17 @@
 		</section>
 		<section id="photography-section">
 			<h1 id="heading">Photography</h1>
-			<ul>
-				<li></li>
+			<ul class="carousel">
+				<div style="display: flex; justify-content: left;" class="edition">
+					<div class="heading">
+						<div>
+							<span>1 May 2025</span>
+							<h1>Chinatown Lights</h1>
+						</div>
+					</div>
+					<li><button><img src="./photographs/chinatown1.jpg"></button></li>
+					<li><button><img src="./photographs/chinatown2.jpg"></button></li>
+				</div>
 			</ul>
 		</section>
 		<section id="socials-section">
@@ -585,12 +716,46 @@
 				</li>
 			</ul>
 		</section>
+		<div class="banner">
+			<div>
+				<h1>Interested? Want to see More?</h1>
+				<h2>Check out my Github Page!</h2>
+				<a href="https://github.com/zaviergpt" target="_blank"><i class="fa-brands fa-github"></i> @zaviergpt's Github</a>
+			</div>
+		</div>
+		<footer>
+			<img src="./me.svg">
+			<ul class="footer">
+				<li>
+					<h1>Quick Links</h1>
+					<ul>
+						<li><a href="https://github.com/zaviergpt">Github</a></li>
+						<li><a href="https://www.linkedin.com/in/zaviergpt">LinkedIn</a></li>
+					</ul>
+				</li>
+				<li>
+					<h1>Interesting Works</h1>
+					<ul>
+						<li><a href="https://zaviergpt.github.io/pass0">pass0</a></li>
+						<li><a href="https://github.com/zaviergpt/budge">budge</a></li>
+					</ul>
+				</li>
+				<li>
+					<h1>Collaborative</h1>
+					<ul>
+						<li><a href="https://github.com/Armysqueaky/Building-Blocs-25-Hackathon">Conet BuildingBlocs</a></li>
+					</ul>
+				</li>
+			</ul>
+		</footer>
 		<ul class="navigation" id="navigation">
-			<li><img src="./me.svg"></li>
-			<li><button id="hello-link" onclick="document.documentElement.scrollTop = 0">Hello</button></li>
-			<li><button id="projects-link" onclick="document.documentElement.scrollTop = 642">Projects</button></li>
-			<li><button id="awards-link" onclick="document.documentElement.scrollTop = 1081">Awards</button></li>
-			<li><button id="socials-link" onclick="document.documentElement.scrollTop = 1597">Socials</button></li>
+			<li><button id="hello-link" onclick="document.documentElement.scrollTop = 1"><img src="./me.svg"></button></li>
+			<div class="buttons" style="display: flex; overflow: hidden; opacity: 0">
+				<li><button id="projects-link" onclick="document.documentElement.scrollTop = 642">Projects</button></li>
+				<li><button id="awards-link" onclick="document.getElementById('awards-section').scrollIntoView()">Awards</button></li>
+				<li><button id="photography-link" onclick="document.getElementById('photography-section').scrollIntoView()">Photos</button></li>
+				<li><button id="socials-link" onclick="document.documentElement.scrollTop = 2147">Socials</button></li>
+			</div>
 		</ul>
 	</body>
 	<script>
@@ -643,15 +808,16 @@
 				}
 				projects[0].appendChild(project[1])
 			})
-			if (window.innerWidth > 600 && window.innerHeight < 675) {
+			if (/*window.innerWidth > 600 && window.innerHeight < 675*/window.innerWidth > 600) {
+				offset = window.innerHeight/10
 				window.addEventListener("scroll", () => {
 					if (document.documentElement.scrollTop > window.innerHeight/4) {
 						for (var section in sections) {
 							section = sections[section]
 							if (section.id) {
 								section.top = section.getBoundingClientRect().top + window.scrollY
-								console.log(section.id, section.top)
-								if ((document.documentElement.scrollTop - section.top)/section.offsetHeight > 0 && (document.documentElement.scrollTop - section.top)/section.offsetHeight < 1) {
+								console.log(section.id, Math.floor(section.top+1))
+								if (((document.documentElement.scrollTop - section.top) + offset)/(section.offsetHeight - offset) > 0 && ((document.documentElement.scrollTop - section.top) + offset)/(section.offsetHeight - offset) < 1) {
 									for (var link in navigation[1]) {
 										link = navigation[1][link]
 										if (link.id) {
@@ -666,9 +832,11 @@
 							}
 						}
 					}
-					navigation[0].style.bottom = (((document.documentElement.scrollTop/(window.innerHeight/4)) < 1) ? (-75 + ((document.documentElement.scrollTop/(window.innerHeight/4)) * (16.7 - (-75)))) : 16.7) + "px"
-					navigation[0].style.transform = `translate(-50%, 0) scale(${((document.documentElement.scrollTop/(window.innerHeight/4)) > 1) ? 1 : (document.documentElement.scrollTop/(window.innerHeight/4))})`
-					navigation[0].style.opacity = (document.documentElement.scrollTop/(window.innerHeight/4))
+					navigation[0].style.bottom = (((document.documentElement.scrollTop/(window.innerHeight/4)) < 1.5) ? (-75 + (((document.documentElement.scrollTop/(window.innerHeight/4))/1.5) * (16.7 - (-75)))) : 16.7) + "px"
+					navigation[0].style.transform = `translate(-50%, 0) scale(${((document.documentElement.scrollTop/(window.innerHeight/4)) > 1.5) ? 1 : ((document.documentElement.scrollTop/(window.innerHeight/4)/1.5))})`
+					navigation[0].style.opacity = ((document.documentElement.scrollTop/(window.innerHeight/4))/1.5)
+					navigation[0].getElementsByClassName("buttons")[0].style.width = (((document.documentElement.scrollTop/(window.innerHeight/4)) < 3) ? 0 : ((((40/9) * 23) + (25/2.5)) * 4)) + "px"
+					navigation[0].getElementsByClassName("buttons")[0].style.opacity = (((document.documentElement.scrollTop/(window.innerHeight/4)) < 3) ? 0 : 1)
 				})
 				window.dispatchEvent(new Event("scroll"))
 				document.getElementById("hello-section").style.height = window.innerHeight > 675 ? 675 : window.innerHeight + "px"
