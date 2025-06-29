@@ -205,6 +205,7 @@
 				display: block;
 				flex: 0 0 auto;
 				height: calc(303px - 25px);
+				position: relative;
 			}
 			section#projects-section ul#projects li:not(ul.skillset li):hover {
 				transform: scale(1.03125);
@@ -250,6 +251,20 @@
 			section#projects-section ul#projects li ul.skillset li i, section#projects-section .overlay#projects-overlay .container .details .info ul#projects-skillset li i {
 				font-size: calc(16px * 1.1);
 				line-height: calc(16px * 1.1);
+			}
+			section#projects-section ul#projects li button {
+				position: absolute;
+				bottom: calc(25px/2);
+				right: calc(25px/2);
+				padding: calc(25px/4) calc(25px/3);
+				border-radius: calc(25px/3);
+				font-size: calc(16px/1.5);
+				color: rgba(0, 0, 0, 0.5);
+				font-weight: 600;
+				border: 1px solid rgba(0, 0, 0, 0.5);
+			}
+			section#projects-section ul#projects li button i {
+				margin-right: calc(25px/6)
 			}
 			section#projects-section .overlay#projects-overlay {
 				position: fixed;
@@ -322,7 +337,7 @@
 			}
 			section#projects-section .overlay#projects-overlay .container .details .links a {
 				width: 100%;
-				aspect-ratio: 5.5/1;
+				padding: calc(16px/1.125) 0px;
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -342,6 +357,53 @@
 				cursor: default;
 				opacity: 0.5;
 			}
+			section#projects-section .overlay#projects-overlay .container #projects-content {
+				width: calc(100% - (250px + 25px) - ((16px * 1.25) * 2));
+				margin-top: 15px;
+				border: 1px solid rgba(0, 0, 0, 0.05);
+				padding: 0px calc(16px * 1.25);
+				background-color: #FFFFFF;
+				border-radius: 16px;
+			}
+			section#projects-section .overlay#projects-overlay .container #projects-content section {
+				margin: calc(16px * 1.25) 0px;
+				padding-bottom: calc(16px * 1.25);
+				font-size: 16px;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+			}
+			section#projects-section .overlay#projects-overlay .container #projects-content section:last-child {
+				border-bottom: 0px;
+				margin: 0px;
+			}
+			section#projects-section .overlay#projects-overlay .container #projects-content section h1 {
+				font-size: calc(16px * 1.375);
+				font-weight: 700;
+				margin: calc(16px/3) 0px;
+			}
+			section#projects-section .overlay#projects-overlay .container #projects-content section h2 {
+				font-size: calc((16px * 1.375)/1.2);
+				font-weight: 700;
+				margin: calc((16px/3/1.2)+16) 0px;
+			}
+			section#projects-section .overlay#projects-overlay .container #projects-content section img {
+				border: 1px solid rgba(0, 0, 0, 0.05);
+				border-radius: 16px;
+				width: calc(16px * 14.2);
+				image-rendering: optimizeQuality;
+			}
+			section#projects-section .overlay#projects-overlay .container #projects-content section ul:has(li img, li div h1, li div p) {
+				list-style-type: none;
+			}
+			section#projects-section .overlay#projects-overlay .container #projects-content section ul li:has(img, div h1, div p) {
+				display: flex;
+				margin: 16px 0px;
+			}
+			section#projects-section .overlay#projects-overlay .container #projects-content section ul li:has(img, div h1, div p) div {
+				margin: 16px calc(16px * 1.5);
+			}
+			section#projects-section .overlay#projects-overlay .container #projects-content section ul li:has(img, div h1, div p):last-child {
+				margin: 0px 0px;
+			}
 			section#awards-section, section#socials-section {
 				background-color: #FFFFFF;
 				color: #000000;
@@ -356,7 +418,7 @@
 				color: #000000;
 				margin-bottom: 25px;
 			}
-			section#socials-section ul, section#awards-section ul {
+			section#socials-section ul {
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -400,16 +462,37 @@
 			section#socials-section ul li#socials-dribbble:hover .frame div {
 				box-shadow: 0px 0px 160px #ea4c89;
 			}
+			section#awards-section ul {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				list-style-type: none;
+				flex-wrap: wrap;
+				margin: calc(-16px/1.125) 0px;
+			}
 			section#awards-section ul li {
 				width: calc((100%/1.125)/4);
 				font-size: calc(16px/1.1);
+				margin: calc(16px/1.125) 0px;
 				text-align: center;
+			}
+			@keyframes shiny {
+				0% {
+					box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.75);
+				} 50% {
+					box-shadow: 0px 0px 2.5px rgba(0, 0, 0, 0.25);
+				} 100% {
+					box-shadow: 0px 0px 10px rgba(255, 215, 0, 0.75);
+				}
 			}
 			section#awards-section ul li img {
 				width: 90%;
 				height: 100%;
 				margin-bottom: 16px;
 				box-shadow: 0px 0px 2.5px rgba(0, 0, 0, 0.25);
+			}
+			section#awards-section ul li.award img {
+				animation: shiny 2.5s infinite;
 			}
 			section#awards-section ul li h1 {
 				font-size: calc(16px * 1.1)
@@ -568,6 +651,9 @@
 				section#socials-section ul, section#awards-section ul {
 					display: block;
 				}
+				section#awards-section ul {
+					margin-top: 16px;
+				}
 				section#socials-section ul li, section#awards-section ul li {
 					width: 100%;
 					display: block;
@@ -575,6 +661,53 @@
 				}
 				section#awards-section ul li img {
 					width: 65%;
+				}
+				section#projects-section .overlay#projects-overlay .container {
+					margin: 0px;
+					width: calc(100% - (25px * 2));
+					padding: 25px;
+					border-radius: 0px;
+				}
+				section#projects-section .overlay#projects-overlay .container .details {
+					display: block;
+				}
+				section#projects-section .overlay#projects-overlay .container .details li {
+					display: block;
+					width: 100%;
+				}
+				section#projects-section .overlay#projects-overlay .container .details li img {
+					width: 100%;
+					height: auto;
+					aspect-ratio: 16/9;
+				}
+				section#projects-section .overlay#projects-overlay .container .details li.info {
+					width: 100%;
+					margin: calc(16px/2) 0px;
+				}
+				section#projects-section .overlay#projects-overlay .container .details li.links {
+					width: 100%;
+					margin: 16px 0px;
+				}
+				section#projects-section .overlay#projects-overlay .container #projects-content {
+					width: calc(100% - ((16px * 1.25) * 2) - 2px)
+				}
+				section#projects-section .overlay#projects-overlay .container #projects-content section ul li:has(img, div h1, div p) {
+					display: block;
+					margin: 32px 0px;
+				}
+				section#projects-section .overlay#projects-overlay .container #projects-content section ul li:has(img, div h1, div p) img {
+					width: 100%;
+				}
+				section#projects-section .overlay#projects-overlay .container #projects-content section ul li:has(img, div h1, div p) div {
+					margin: 8px 0px;
+				}
+				footer ul.footer {
+					display: block;
+					margin-top: calc(25px/1.5);
+				}
+				footer ul.footer li ul {
+					width: 100%;
+					margin-bottom: 25px
 				}
 			}
 			@media only screen and (min-width: 870px) {
@@ -647,26 +780,42 @@
 							<a id="projects-links-demo" style="background-color: #FFFFFF" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Live Demo</a>
 						</li>
 					</ul>
+					<div id="projects-content"></div>
 				</div>
 			</div>
 		</section>
 		<section id="awards-section">
 			<h1 class="heading">Awards & Certificates</h1>
 			<ul>
-				<li>
-					<img src="./certifications/buildingblocs.jpg">
-					<h1>BuildingBlocs</h1>
+				<li class="award">
+					<img src="./certifications/buildingblocs-runnerup.jpg">
+					<h1>BuildingBlocs 1st Runner-Up</h1>
 					<p>1st Runner-Up for BuildingBlocs June Conference 2025, an AI-based hackathon.</p>
 				</li>
 				<li>
-					<img src="./certifications/ycep.png">
-					<h1>YCEP Bootcamp</h1>
-					<p>Participated in Temasek Poly and CSA Singapore's Youth Cyber Exploration Programme</p>
+					<img src="./certifications/buildingblocs-hackathon.png">
+					<h1>BuildingBlocs Hackathon</h1>
+					<p>Participated in BuildingBlocs June Conference 2025, an AI-based hackathon.</p>
+				</li>
+				<li>
+					<img src="./certifications/buildingblocs-workshop.png">
+					<h1>BuildingBlocs Workshop</h1>
+					<p>Participated in BuildingBlocs June Conference 2025, an AI-based hackathon.</p>
 				</li>
 				<li>
 					<img src="./certifications/swiftexplorers.jpg">
 					<h1>Swift Explorers</h1>
 					<p>Participated in Apple and Tinkeracademy's Inclusive App Design Challenge Coding Bootcamp</p>
+				</li>
+				<li>
+					<img src="./certifications/sieberrsecctf.jpg">
+					<h1>Sieberrsec CTF 5.0</h1>
+					<p>Participated in Sieberrsec CTF 5.0 organized by Hwa Chong Institution.</p>
+				</li>
+				<li>
+					<img src="./certifications/ycep.png">
+					<h1>YCEP Bootcamp</h1>
+					<p>Participated in Temasek Poly and CSA Singapore's Youth Cyber Exploration Programme</p>
 				</li>
 				<li>
 					<img src="./certifications/blahaj.jpg">
@@ -678,6 +827,16 @@
 		<section id="photography-section">
 			<h1 id="heading">Photography</h1>
 			<ul class="carousel">
+				<div style="display: flex; justify-content: left;" class="edition">
+					<div class="heading">
+						<div>
+							<span>24 June 2025</span>
+							<h1>Batam</h1>
+						</div>
+					</div>
+					<li><button><img src="./photographs/batam1.webp"></button></li>
+					<li><button><img src="./photographs/batam2.webp"></button></li>
+				</div>
 				<div style="display: flex; justify-content: left;" class="edition">
 					<div class="heading">
 						<div>
@@ -768,7 +927,7 @@
 				<li><button id="projects-link" onclick="document.documentElement.scrollTop = 642">Projects</button></li>
 				<li><button id="awards-link" onclick="document.getElementById('awards-section').scrollIntoView()">Awards</button></li>
 				<li><button id="photography-link" onclick="document.getElementById('photography-section').scrollIntoView()">Photos</button></li>
-				<li><button id="socials-link" onclick="document.documentElement.scrollTop = 2147">Socials</button></li>
+				<li><button id="socials-link" onclick="document.getElementById('socials-section').scrollIntoView()">Socials</button></li>
 			</div>
 		</ul>
 	</body>
@@ -776,13 +935,14 @@
 		sections = document.getElementsByTagName("section")
 		navigation = [document.getElementById("navigation"), document.getElementById("navigation").getElementsByTagName("button")]
 		projects = [document.getElementById("projects"), [
-			{ name: "yi-app", description: "App created for Youths of my Church.", category: ["full-stack"], skillset: ["node-js", "html5", "css3-alt", "js"], links: { } },
-			{ name: "pass0", description: "Password Manager Web App built with HTML, CSS, and JS.", category: ["web"], skillset: ["html5", "css3-alt", "js"], links: { repository: "https://github.com/zaviergpt/pass0", demo: "https://zaviergpt.github.io/pass0" } },
-			{ name: "budge", description: "Budget Web App created with HTML, CSS and JS.", category: ["web"], skillset: ["html5", "css3-alt", "js"], links: { repository: "https://github.com/zaviergpt/budge", demo: "https://zaviergpt.github.io/budge" } },
-			{ name: "the-vault", description: "Barebones version of pass0, the project before pass0.", category: ["web"], skillset: ["html5", "css3-alt", "js"] },
-			{ name: "stash", description: "Decentralised storage solution and network created with Node.js.", category: ["others"], skillset: ["node-js"] },
-			{ name: "encrypt-js", description: "Encrypt JS is a script written in Javascript to Encrypt or Decrypt Text.", category: ["web"], skillset: ["js"] },
-			{ name: "encrypto", description: "Text encryption algorithm on Python.", category: ["others"], skillset: ["python"] }
+			{ name: "yi-app", description: "App created for Youths of my Church.", category: ["full-stack"], skillset: ["node-js", "html5", "css3-alt", "js"], links: { }, content: "<section><h1>YI App</h1><p>App for the Youths of my Church.</p><p>YI App was designed with the users in mind, in this case, Youths. The interface had to be easy to use, rich in information, and especially quick to access, anytime, anywhere.</p></section><section><h1>Why YI App?</h1><p>Currently, my church has an app which serves the adults during the adult service.<br>I saw that Youths also required a place for them to look up on upcoming events, watch live sermons, and especially, have a safe place for them to store their notes.</p></section><section><ul><li><img src='./projects/yi-app-device1.png'><div><h1>Home Page</h1><p>This is the YI App's Home page.</p></div></li><li><img src='./projects/yi-app-device2.png'><div><h1>Library</h1><p>This is displays the available sermons in the current series selected.<br>It shows the relevant information required such as the date, sermon title, and speaker.</p></div></li><li><img src='./projects/yi-app-device3.png'><div><h1>Notes</h1><p>Notes are displayed in Rich Text. Just like in READMEs on GitHub.<br>Notes are organized nicely and are pleasant to look at, such that it does not confuse the reader.<br>The notes allows for the creation of Headings, Buttons/Links to Bible Verses, large textboxes, and bolding and italics.</p></div></li></ul></section>" },
+			{ name: "pass0", description: "Password Manager Web App built with HTML, CSS, and JS.", category: ["web"], skillset: ["html5", "css3-alt", "js"], links: { repository: "https://github.com/zaviergpt/pass0", demo: "https://zaviergpt.github.io/pass0" }, content: "<section><h1>pass0</h1><p>pass0 is a simple password app which generates and helps you with your password needs.</p></section><section><h1>How does pass0 work?</h1><p>pass0 is not any typical password manager, it does not store any password.<br>Instead, pass0 generates a password based on your account (email) and your usage (service).<br>It uses an algorithm to generate your password, every time you select a service you would want to use the password for.<br> Whenever you require the password, your email and service ID would be parsed into the algorithm to generate your password.</p></section><section><h1>Take a Quick Look!</h1><p>pass0 has a minimalistic and simple-to-use design which does not confuse the user.</p><ul><li><img src='./projects/pass0-device1.jpg'><div><h1>Vaults Page</h1><p>The vault page allows for the listing of currently available vaults.</p></div></li><li><img src='./projects/pass0-device2.jpg'><div><h1>Unlocking Vault</h1><p>All vaults require a password to access.</p></div></li><li><img src='./projects/pass0-device3.jpg'><div><h1>Adding Email Accounts</h1><p>In order to generate a password, pass0 requires an email.<br>It automatically detects the email provider and produces an icon for each email address.</p></div></li><li><img src='./projects/pass0-device4.jpg'><div><h1>Adding a Service</h1><p>Generating a password requires you to add a service which you require the password for.<br>You are to select an email account and a service you would like to use. This way, pass0 knows how to categorize your accounts.</p></div></li><li><img src='./projects/pass0-device5.jpg'><div><h1>Overview</h1><p>All accounts and services are listed in an organized and categorized manner, making it easy for users.</p></div></li></ul></section>" },
+			{ name: "budge", description: "Budget Web App created with HTML, CSS and JS.", category: ["web"], skillset: ["html5", "css3-alt", "js"], links: { repository: "https://github.com/zaviergpt/budge", demo: "https://zaviergpt.github.io/budge" }, content: "<section><h1>budge.</h1><p>budge is a Budget Web App.</p></section><section><h1>Why a Budget App?</h1><p>I wanted to create a budget app to track my expenses, plan my goals and see my money in a more organized matter.</p></section><section><ul><li><img src='./projects/budge-device1.jpg'><div><h1>Dashboard</h1><p>Users have an overview of transactions.<br>The overview page contains the balance display, a line graph, income and expenses values, and expenses categories.<br>Each transaction, income or expense is added to a line graph, which shows the balance over time.</p></div></li><li><img src='./projects/budge-device2.jpg'><div><h1>Adding Income</h1><p>Minimalistic and simple interface for people to use.</p></div></li><li><img src='./projects/budge-device3.jpg'><div><h1>Adding Expenses</h1><p>Same as Income, but now categories are added for categorization of expenses.</p></div></li><li><img src='./projects/budge-device4.jpg'><div><h1>All Transactions</h1><p>All transactions are listed based on date and time.<br>Colors determine expenses, while the color, White, represents Income.</p></div></li></ul></section>" },
+			{ name: "conet", description: "American Sign Language Translator for BuildingBlocs 2025 AI June Conference.", category: ["ml", "full-stack"], skillset: ["html5", "css3-alt", "js", "python"], links: { repository: "https://github.com/Armysqueaky/Building-Blocs-25-Hackathon" }, content: "" },
+			{ name: "stash", description: "Decentralised storage solution and network created with Node.js.", category: ["others"], skillset: ["node-js"], links: { respository: "https://github.com/zaviergpt/stash" }, content: "" },
+			{ name: "encrypt-js", description: "Encrypt JS is a script written in Javascript to Encrypt or Decrypt Text.", category: ["web"], skillset: ["js"], links: { repository: "https://github.com/zaviergpt/encrypt-js" }, content: "" },
+			{ name: "the-vault", description: "Barebones version of pass0, the project before pass0.", category: ["web"], skillset: ["html5", "css3-alt", "js"], links: { repository: "" }, content: "" },
+			{ name: "encrypto", description: "Text encryption algorithm on Python.", category: ["others"], skillset: ["python"], content: "" }
 		], [document.getElementById("projects-overlay"), {
 			name: document.getElementById("projects-name"),
 			banner: document.getElementById("projects-banner"),
@@ -793,14 +953,15 @@
 			links: {
 				repository: document.getElementById("projects-links-github"),
 				demo: document.getElementById("projects-links-demo")
-			}
+			},
+			content: document.getElementById("projects-content")
 		}]]
 		colors = { "js": ["#f2df3a"], "html5": ["#ff5733"], "css3-alt": ["#428bca"], "node-js": ["#3c763d"], "python": ["#306998", "#FFD43B"] }
 		window.addEventListener("DOMContentLoaded", () => {
 			projects[1].forEach((project) => {
 				project = [project, document.createElement("li")]
 				project[1].className = project[0].category.join(" ")
-				project[1].innerHTML = `<img src="./projects/${project[0].name}-banner.jpg" onerror="this.src = './projects/unknown-banner.jpg'"><div class="info"><h1>${project[0].name}</h1><p>${project[0].description}</p></div><ul class="skillset">${project[0].skillset.map((skill) => `<li style="${colors[skill].length < 2 ? `background-color: ${colors[skill][0]}` : `background-image: linear-gradient(150deg, ${colors[skill][0]}, ${colors[skill][1]})`}"><i class="fa-brands fa-${skill}"></i></li>`).join("")}</ul>`
+				project[1].innerHTML = `<img src="./projects/${project[0].name}-banner.jpg" onerror="this.src = './projects/unknown-banner.jpg'"><div class="info"><h1>${project[0].name}</h1><p>${project[0].description}</p></div><ul class="skillset">${project[0].skillset.map((skill) => `<li style="${colors[skill].length < 2 ? `background-color: ${colors[skill][0]}` : `background-image: linear-gradient(150deg, ${colors[skill][0]}, ${colors[skill][1]})`}"><i class="fa-brands fa-${skill}"></i></li>`).join("")}</ul><button><i class="fa-solid fa-up-right-and-down-left-from-center"></i> Open Project</button>`
 				project[1].data = project[0]
 				project[1].onclick = function() {
 					projects[2][0].style.left = "0px"
@@ -818,7 +979,12 @@
 							link[1].className = "disabled"
 						}
 					})
-					console.log(this.data)
+					if (this.data.content && this.data.content.length > 0) {
+						projects[2][1].content.innerHTML = this.data.content
+						projects[2][1].content.style.display = "block"
+					} else {
+						projects[2][1].content.style.display = "none"
+					}
 				}
 				projects[0].appendChild(project[1])
 			})
