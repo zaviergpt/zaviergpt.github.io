@@ -102,6 +102,19 @@
 				text-transform: uppercase;
 				color: rgba(0, 0, 0, 0.625);
 			}
+			section#hello-section div#hello-contributions-section {
+				border-radius: 12.5px;
+				margin-top: 25px;
+				height: calc(11.1vh + 13px + 12.5px);
+			}
+			section#hello-section div#hello-contributions-section h2 {
+				margin: 0px;
+				margin-bottom: 12.5px;
+			}
+			section#hello-section div#hello-contributions-section img#hello-contributions {
+				display: block;
+				width: 100%;
+			}
 			ul.navigation {
 				position: fixed;
 				bottom: -75px;
@@ -714,6 +727,9 @@
 					width: 100%;
 					margin-bottom: 25px
 				}
+				section#hello-section div#hello-contributions-section {
+					display: none;
+				}
 			}
 			@media only screen and (min-width: 870px) {
 				section#hello-section img#hello-picture-desktop {
@@ -757,6 +773,10 @@
 						<li><i class="fa-brands fa-css3-alt"></i><div>CSS</div></li>
 						<li><i class="fa-brands fa-js"></i><div>Javascript</div></li>
 					</ul>
+					<div id="hello-contributions-section">
+						<h2>Github Contributions In the Last Year</h2>
+						<img id="hello-contributions"/>
+					</div>
 				</div>
 			</div>
 			<img id="hello-picture-phone" src="./me (1).png">
@@ -793,7 +813,7 @@
 			<h1 class="heading">Awards & Certificates</h1>
 			<ul>
 				<li class="award">
-					<img src="./certifications/buildingblocs-runnerup.jpg">
+					<img src="./certifications/buildingblocs-runnerup.png">
 					<h1>BuildingBlocs 1st Runner-Up</h1>
 					<p>1st Runner-Up for BuildingBlocs June Conference 2025, an AI-based hackathon.</p>
 				</li>
@@ -961,6 +981,7 @@
 			},
 			content: document.getElementById("projects-content")
 		}]]
+		contributions = document.getElementById("hello-contributions")
 		colors = { "js": ["#f2df3a"], "html5": ["#ff5733"], "css3-alt": ["#428bca"], "node-js": ["#3c763d"], "python": ["#306998", "#FFD43B"] }
 		window.addEventListener("DOMContentLoaded", () => {
 			projects[1].forEach((project) => {
@@ -994,6 +1015,7 @@
 				projects[0].appendChild(project[1])
 			})
 			if (/*window.innerWidth > 600 && window.innerHeight < 675*/window.innerWidth > 600) {
+				contributions.src = `https://ghchart.rshah.org/zaviergpt`
 				offset = window.innerHeight/10
 				window.addEventListener("scroll", () => {
 					if (document.documentElement.scrollTop > window.innerHeight/4) {
